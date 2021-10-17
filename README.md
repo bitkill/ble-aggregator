@@ -1,8 +1,7 @@
-# ble-aggregator Project
+# ble-aggregator - STILL WIP
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Aggregates data sent by [blea2mqtt](https://github.com/bitkill/blea2mqtt) and provides it to prometheus.
 
 ## Running the application in dev mode
 

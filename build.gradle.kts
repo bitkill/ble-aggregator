@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.5.30"
     kotlin("plugin.allopen") version "1.5.30"
     id("io.quarkus")
+    id("fr.brouillard.oss.gradle.jgitver") version "0.6.1"
 }
 
 repositories {
@@ -21,8 +22,12 @@ dependencies {
     implementation("io.quarkus:quarkus-micrometer-registry-prometheus")
     implementation("io.quarkus:quarkus-hibernate-validator")
     implementation("io.quarkus:quarkus-smallrye-reactive-messaging")
+    implementation("io.quarkus:quarkus-smallrye-health")
+    implementation("io.quarkus:quarkus-smallrye-openapi")
+    implementation("io.quarkus:quarkus-cache")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-resteasy-jackson")
+    implementation("io.quarkus:quarkus-logging-json")
     implementation("io.quarkus:quarkus-reactive-routes")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
