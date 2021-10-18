@@ -78,7 +78,7 @@ class AggregateConsumer(
             meterRegistry.gauge(
                 "devices.data",
                 Tags.of(
-                    Tag.of("device_name", wrapped.macAddress),
+                    Tag.of("device_addr", wrapped.macAddress),
                     Tag.of("device_type", wrapped.result?.deviceType ?: "none"),
                     Tag.of("device_provider", wrapped.parser),
                     Tag.of("data_type", t)
@@ -92,7 +92,7 @@ class AggregateConsumer(
         meterRegistry.gauge(
             "devices.info.rssi",
             Tags.of(
-                Tag.of("device_name", wrapped.macAddress),
+                Tag.of("device_addr", wrapped.macAddress),
                 Tag.of("device_type", wrapped.result?.deviceType ?: "none"),
                 Tag.of("device_provider", wrapped.parser)
             ),
@@ -101,7 +101,7 @@ class AggregateConsumer(
         meterRegistry.gauge(
             "devices.info.last.broadcast",
             Tags.of(
-                Tag.of("device_name", wrapped.macAddress),
+                Tag.of("device_addr", wrapped.macAddress),
                 Tag.of("device_type", wrapped.result?.deviceType ?: "none"),
                 Tag.of("device_provider", wrapped.parser)
             ),
