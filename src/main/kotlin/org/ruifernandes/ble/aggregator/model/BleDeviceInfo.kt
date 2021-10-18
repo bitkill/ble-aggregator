@@ -7,4 +7,5 @@ data class BleDeviceInfo(
     var lastBroadcast: LocalDateTime,
     val deviceTypes: MutableSet<String>,
     val providers: MutableSet<String>,
+    var data: Map<String, Float>
 )

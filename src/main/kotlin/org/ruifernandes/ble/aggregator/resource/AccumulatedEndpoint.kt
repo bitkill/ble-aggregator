@@ -20,14 +20,8 @@ class AccumulatedEndpoint {
     internal lateinit var aggregateConsumer: AggregateConsumer
 
     @GET
-    @Operation(summary = "Gets accumulated data in cache")
-    fun getEventsOverview(): Map<String, Map<String, Serializable>> {
-        return aggregateConsumer.getAllCachedEventData()
-    }
-
-    @GET
-    @Path("/devices")
-    @Operation(summary = "Gets all device info in cache")
+    @Path("")
+    @Operation(summary = "Gets all device info and events in cache")
     fun getDeviceOverview(): Map<String, BleDeviceInfo> {
         return aggregateConsumer.getAllCachedDeviceData()
     }
