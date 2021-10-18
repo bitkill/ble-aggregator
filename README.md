@@ -1,5 +1,4 @@
-# ble-aggregator - STILL WIP
-
+# ᚼᛒle-aggregator - STILL WIP
 
 Aggregates data sent by [blea2mqtt](https://github.com/bitkill/blea2mqtt) and provides it to prometheus.
 
@@ -49,3 +48,21 @@ If you want to learn more about building native executables, please consult http
 ## Related Guides
 
 - Kotlin ([guide](https://quarkus.io/guides/kotlin)): Write your services in Kotlin
+
+
+## Some PromQL sample queries
+
+Get temperatures
+```
+devices_data{data_type="temperature"}
+```
+
+Get humidity
+```
+devices_data{data_type="humidity"}
+```
+
+Get battery
+```
+devices_data{data_type="battery"}
+```

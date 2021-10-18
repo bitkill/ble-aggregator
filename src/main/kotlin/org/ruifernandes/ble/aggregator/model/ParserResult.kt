@@ -5,7 +5,7 @@ import java.io.Serializable
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ParserResult(
-    val event: Map<String, Serializable>,
+    val event: Map<String, Short>,
     val deviceType: String,
     val eventType: Short
 )

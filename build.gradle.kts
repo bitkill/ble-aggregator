@@ -29,6 +29,7 @@ dependencies {
     implementation("io.quarkus:quarkus-resteasy-jackson")
     implementation("io.quarkus:quarkus-logging-json")
     implementation("io.quarkus:quarkus-reactive-routes")
+    implementation("io.quarkus:quarkus-container-image-docker")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
     testImplementation("io.quarkus:quarkus-junit5")

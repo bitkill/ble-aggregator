@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+
+scrape_configs:
+  - job_name: "ble-aggregator"
+    scrape_interval: 10s
+    metrics_path: /q/metrics
+    static_configs:
+      - targets:
+        - "ble-aggregator:8080"
+        labels:
+          app: "ble-aggregator"
+          # Add more here as necessary
