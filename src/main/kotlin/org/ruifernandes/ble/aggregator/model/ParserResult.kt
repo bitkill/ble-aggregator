@@ -1,8 +1,10 @@
 package org.ruifernandes.ble.aggregator.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import java.io.Serializable
 
+/**
+ * Event data from ble advertisements.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class ParserResult(
     val event: Map<String, Float>,
