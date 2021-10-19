@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") version "1.5.30"
     kotlin("plugin.allopen") version "1.5.30"
     id("io.quarkus")
-    id("fr.brouillard.oss.gradle.jgitver") version "0.6.1"
+    id("fr.brouillard.oss.gradle.jgitver") version "0.9.1"
 }
 
 repositories {

@@ -110,6 +110,7 @@ class AggregateConsumer(
         )
     }
 
+    // TODO: register this in a different way, via registerData
     private fun registerDeviceMetrics(wrapped: WrappedBleResult) {
         meterRegistry.gauge(
             "devices.info.rssi",
