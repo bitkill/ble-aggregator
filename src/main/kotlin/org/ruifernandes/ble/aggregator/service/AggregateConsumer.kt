@@ -33,9 +33,9 @@ class AggregateConsumer(
     @ConfigProperty(name = "ble.aggregator.max.size", defaultValue = "100")
     val cacheMaxSize : Long,
     @Inject
-    val meterRegistry: MeterRegistry,
+    var meterRegistry: MeterRegistry,
     @Inject
-    val logger : Logger
+    var logger : Logger
 ) {
 
     private var allDevices: MutableSet<String> = mutableSetOf()

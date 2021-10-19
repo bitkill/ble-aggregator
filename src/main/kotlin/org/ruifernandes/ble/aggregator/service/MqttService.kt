@@ -22,6 +22,7 @@ class MqttService {
 
     @Incoming("ble_sensors")
     fun consume(message: Message<ByteArray?>): CompletionStage<Void> {
+        logger.debug("got message!")
         val stringPayload = String(message.payload!!, StandardCharsets.UTF_8)
 
         try {
