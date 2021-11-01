@@ -1,5 +1,6 @@
 package org.ruifernandes.ble.aggregator.resource
 
+import io.smallrye.mutiny.Uni
 import org.eclipse.microprofile.openapi.annotations.Operation
 import org.ruifernandes.ble.aggregator.model.BleDeviceInfo
 import org.ruifernandes.ble.aggregator.service.AggregateConsumer
@@ -21,9 +22,12 @@ class AccumulatedEndpoint {
 
     @GET
     @Path("")
-    @Operation(summary = "Gets all device info and events in cache")
-    fun getDeviceOverview(): Map<String, BleDeviceInfo> {
-        return aggregateConsumer.getAllCachedDeviceData()
+    @Operation(
+        summary = "Gets all device info and events in cache",
+        description = "Lists all the device data present in the caffeine cache that was received via mqtt"
+    )
+    fun getDeviceOverview(): Uni<Map<String, BleDeviceInfo>> {
+        return Uni.createFrom().item(aggregateConsumer.getAllCachedDeviceData())
     }
 
 }

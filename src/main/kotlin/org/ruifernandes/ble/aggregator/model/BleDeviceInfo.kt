@@ -6,6 +6,7 @@ import java.time.LocalDateTime
  * Internal representation of a BLE device.
  */
 data class BleDeviceInfo(
+    var macAddress: String,
     var lastRssi: Short,
     var lastBroadcast: LocalDateTime,
     val deviceTypes: MutableSet<String>,

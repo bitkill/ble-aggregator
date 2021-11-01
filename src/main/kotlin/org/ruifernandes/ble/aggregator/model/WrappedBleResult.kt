@@ -11,5 +11,6 @@ data class WrappedBleResult(
     val rssi: Short,
     val receivedFrom: String,
     val parser: String,
-    val result: ParserResult?
+    val deviceType: String,
+    val result: Map<String, Float>?
 )
