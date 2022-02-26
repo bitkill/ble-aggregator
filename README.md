@@ -66,3 +66,6 @@ Get battery
 ```
 devices_data{data_type="battery"}
 ```
+
+## Useful related applications
+[mqtt-explorer](https://mqtt-explorer.com/)

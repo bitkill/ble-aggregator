@@ -1,24 +1,22 @@
 version: '3.7'
 
-
 volumes:
   prometheus_volume:
   grafana_volume:
+  mosquitto_data:
+  mosquitto_logs:
 
 services:
   # local mqtt server
   mosquitto:
-    image: eclipse-mosquitto
+    image: eclipse-mosquitto:2
     restart: unless-stopped
     ports:
       - "1883:1883"
       - "1884:1884"
     volumes:
-      - "./data/mosquitto/config:/mosquitto/config"
-      - "./data/mosquitto/data:/mosquitto/data"
-      - "./data/mosquitto/log:/mosquitto/log"
-    environment:
-      TZ: "${TIMEZONE}"
-    user: "${LOCAL_USER}:${LOCAL_USER}"
+      - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+      - "mosquitto_data:/mosquitto/data"
+      - "mosquitto_logs:/mosquitto/log"
 
 

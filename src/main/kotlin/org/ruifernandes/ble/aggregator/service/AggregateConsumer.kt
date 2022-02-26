@@ -39,8 +39,8 @@ class AggregateConsumer(
         .maximumSize(cacheConfigs.cacheMaxSize)
         .build()
 
-    private var statuses: MultiGauge
-    private var signalStrength: MultiGauge
+    private lateinit var statuses: MultiGauge
+    private lateinit var signalStrength: MultiGauge
     private var registerCadence = Duration.ofSeconds(2)
 
     init {
