@@ -1,4 +1,4 @@
-# ᚼᛒle-aggregator - STILL WIP
+# ᚼᛒle-aggregator
 
 Aggregates data sent by [blea2mqtt](https://github.com/bitkill/blea2mqtt) and provides it to prometheus.
 
