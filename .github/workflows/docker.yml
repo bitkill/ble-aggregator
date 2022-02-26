@@ -2,7 +2,7 @@ name: Docker Buildx & Publish Image
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
