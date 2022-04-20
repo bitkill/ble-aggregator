@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "1.6.21"
-    kotlin("plugin.allopen") version "1.6.20"
+    kotlin("plugin.allopen") version "1.6.21"
     id("io.quarkus")
     id("fr.brouillard.oss.gradle.jgitver") version "0.9.1"
 }
