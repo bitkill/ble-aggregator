@@ -1,6 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.7.10"
-    kotlin("plugin.allopen") version "1.7.10"
+    kotlin("jvm") version "1.7.22"
+    kotlin("plugin.allopen") version "1.7.22"
+    id("org.jetbrains.dokka") version "1.7.20"
     id("io.quarkus")
     id("fr.brouillard.oss.gradle.jgitver") version "0.9.1"
 }
@@ -42,11 +43,14 @@ dependencies {
 }
 
 group = "org.ruifernandes"
-version = "0.0.0-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+jgitver {
+    useDistance = false
 }
 
 allOpen {

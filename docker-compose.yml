@@ -20,7 +20,7 @@ services:
 
   # Prometheus, a time series database & service
   prometheus:
-    image: prom/prometheus:v2.30.3
+    image: prom/prometheus:v2.41.0
     ports:
       - "9090:9090"
     volumes:
@@ -30,7 +30,7 @@ services:
 
   # Grafana, Awesome dashboards
   grafana:
-    image: grafana/grafana:8.2.1
+    image: grafana/grafana:9.3.2
     user: "1000" # current user
     volumes:
       - grafana_volume:/var/lib/grafana

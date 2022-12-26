@@ -12,4 +12,4 @@ scrape_configs:
         - "ble-aggregator:8080"
         labels:
           app: "ble-aggregator"
-          # Add more here as necessary
+          # Add more static labels here as necessary

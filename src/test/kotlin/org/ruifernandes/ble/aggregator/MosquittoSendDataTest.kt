@@ -23,7 +23,8 @@ class MosquittoSendDataTest {
     @Outgoing("ble-sensors-out")
     fun sendOutgoing() : Multi<String> {
         return Multi.createFrom()
-            .ticks().every(Duration.ofMillis(100))
+            .ticks()
+            .every(Duration.ofMillis(100))
             .map { "{\"macAddress\":\"592d3511e28c\",\"rssi\":-81,\"receivedFrom\":\"node1\",\"parser\":\"qingping\",\"deviceType\":\"CGDK2\",\"result\":{\"eventType\":1,\"temperature\":20.6,\"humidity\":58}}" }
     }
 }
