@@ -1,1 +1,55 @@
-src/main/docker/Dockerfile.jvm
+####
+# This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
+#
+# Before building the container image run:
+#
+# ./gradlew build
+#
+# Then, build the image with:
+#
+# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/ble-aggregator-jvm .
+#
+# Then run the container using:
+#
+# docker run -i --rm -p 8080:8080 quarkus/ble-aggregator-jvm
+#
+# If you want to include the debug port into your docker image
+# you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005
+#
+# Then run the container using :
+#
+# docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" quarkus/ble-aggregator-jvm
+#
+###
+FROM openjdk:22-slim
+
+ARG RUN_JAVA_VERSION=1.3.8
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
+
+RUN mkdir /deployments \
+	&& chmod "g+rwX" /deployments
+
+WORKDIR /deployments
+
+RUN apt-get update -q \
+	&& apt-get install -y --no-install-recommends wget curl \
+ 	&& rm -Rf /var/lib/apt /var/cache/apt
+
+RUN curl https://repo1.maven.org/maven2/io/fabric8/run-java-sh/${RUN_JAVA_VERSION}/run-java-sh-${RUN_JAVA_VERSION}-sh.sh -o /deployments/run-java.sh && \
+	chmod 540 /deployments/run-java.sh
+
+# Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
+ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+# We make four distinct layers so if there are application changes the library layers can be re-used
+COPY build/quarkus-app/lib/ /deployments/lib/
+COPY build/quarkus-app/*.jar /deployments/
+COPY build/quarkus-app/app/ /deployments/app/
+COPY build/quarkus-app/quarkus/ /deployments/quarkus/
+
+EXPOSE 8080 5005
+
+HEALTHCHECK --interval=5m --timeout=3s \
+  CMD curl -f http://localhost:8080/q/health/ready || exit 1
+
+ENTRYPOINT [ "/deployments/run-java.sh" ]
+
